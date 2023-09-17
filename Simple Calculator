@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        input[type="text"] {
+            width: 30%;
+            padding: 10px;
+            margin-bottom:10px;
+            text-align:center;
+        }
+        button {
+            width: 48px;
+            height: 48px;
+            margin: 5px;
+            font-size: 20px;
+            border-radius: 30%;
+            
+        }
+        body{
+            display:flex;
+            justify-content: space-around;
+            margin-top: 190px;
+            background-color:lightgrey;
+        }
+        #hardik{
+            background-color:black;
+            width: 50%;height: 100%;
+            border-radius: 40%;
+            border-style:solid;
+            border-color:grey;
+            border-width:13px;
+
+        }
+        .but_color{
+            background-color:rgb(63, 65, 65);
+            color:bisque;
+            font-weight:bold;
+            font-size: 25px;
+            font-family: 'Times New Roman';
+            border: 2px solid lightgrey;
+            box-shadow: 0 0 7.5px white;
+            transition: 0.3s;
+        }
+        .but_color:focus{
+            color:lightcyan;
+            border: 2px solid lightblue;
+            box-shadow: 0 0 20px blue;
+        }
+        #heading{
+            background-color: lightgrey;
+            height:fit-content;
+            font-family:'Times New Roman';
+            font-style:italic;
+            
+    
+        }
+        .yel_color{
+            background-color: rgb(236, 172, 11);
+            color:bisque;
+            font-weight:bold;
+            font-size:25px;
+            border:2px solid lightgray;
+            box-shadow: 0 0 10px white;
+            cursor:pointer; 
+           transition:0.3s; 
+        }
+        .yel_color:focus{
+            color:lightcyan;
+            border:2px solid lightblue;
+            box-shadow: 0 0 20px white;
+        }
+        #display{
+            background-color:white;
+            font-size: 20px;
+            font-weight:bold;
+            border:5px solid grey;
+            border-radius:10%;
+            box-shadow: 0 0 15px white;
+        }
+      
+    </style>
+</head>
+<body>
+    <div  id="hardik">
+        <div id="heading">
+    <h1 style="margin-left: 250px;" ><u>Simple Calculator</u></h1></div>
+    <input style="margin-left: 240px;" type="text" id="display" >
+    <br>
+    
+    <button style="margin-left: 250px;" class="but_color" onclick="appendToDisplay('7')">7</button>
+    
+  <button  class="but_color"  onclick="appendToDisplay('8')" >8</button>
+   <button class="but_color" onclick="appendToDisplay('9')">9</button>
+    <button class="yel_color" onclick="appendToDisplay('+')">+</button>
+    <br>
+    <button class="but_color" style="margin-left: 250px;" onclick="appendToDisplay('4')">4</button>
+    <button class="but_color" onclick="appendToDisplay('5')">5</button>
+    <button class="but_color" onclick="appendToDisplay('6')">6</button>
+    <button class="yel_color" onclick="appendToDisplay('-')">-</button>
+    <br>
+    <button class="but_color" style="margin-left: 250px;" onclick="appendToDisplay('1')">1</button>
+    <button class="but_color" onclick="appendToDisplay('2')">2</button>
+    <button class="but_color" onclick="appendToDisplay('3')">3</button>
+    <button class="yel_color" onclick="appendToDisplay('*')">*</button>
+    <br>
+    <button class="but_color" style="margin-left: 250px;" onclick="appendToDisplay('0')">0</button>
+    <button class="yel_color" onclick="clearDisplay()">C</button>
+    <button class="yel_color" onclick="calculateResult()">=</button>
+    <button class="yel_color" onclick="appendToDisplay('/')">/</button>
+    <br>
+    
+    </div>
+</div>
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById("display").value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        function calculateResult() {
+            try {
+                const expression = document.getElementById("display").value;
+                const result = eval(expression);
+                document.getElementById("display").value = result;
+            } catch (error) {
+                document.getElementById("display").value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
